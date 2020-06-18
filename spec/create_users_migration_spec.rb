@@ -6,7 +6,7 @@ describe 'user' do
   before do
     sql = "DROP TABLE IF EXISTS users"
     ActiveRecord::Base.connection.execute(sql)
-    CreateUsers.new.up
+    CreateUsers.new.change
   end
 
   it 'has a name' do
@@ -17,4 +17,3 @@ describe 'user' do
     expect(User.where(username: "Steven").first).to eq(user)
   end
 end
-
